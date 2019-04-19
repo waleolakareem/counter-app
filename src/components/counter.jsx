@@ -4,11 +4,19 @@ class Counter extends Component {
   state = {
     count: 0,
   };
+
+  // styles = {
+  //   fontSize: 10,
+  //   fontWeight: "bold"
+  // }
+
+  //Inline style involves using two brackets for example
+  //<button styles={{fontSize:30}}></button>
   render() {
     return (
       <React.Fragment>
-        <span>{this.formatCount()}</span>
-        <button>Increment</button>
+        <span className="badge badge-primary m-2">{this.formatCount()}</span>
+        <button className="btn btn-secondary btn-sm">Increment</button>
       </React.Fragment>
     );
   }
