@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
   state = {
-    count: 0,
+    count: this.props.value,
     tags: []
   };
 
@@ -18,11 +18,11 @@ class Counter extends Component {
 
   //Whenever you need to pass an argument pass it thru the event handler and make it a function putting it inline
   handleIncrement = product => {
-    console.log(product)
     this.setState({ count: this.state.count + 1});
   }
 
   render() {
+    console.log(this.props);
     return <div>
     <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
     <button onClick={() => this.handleIncrement("product")} className="btn btn-secondary btn-sm">Increment
