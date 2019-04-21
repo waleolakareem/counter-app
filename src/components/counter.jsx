@@ -16,15 +16,16 @@ class Counter extends Component {
   //Second appreoach for binding is using the converting it in arrow function
 
 
-
-  handleIncrement = () => {
-    console.log("Increment Clicked",this)
+  //Whenever you need to pass an argument pass it thru the event handler and make it a function putting it inline
+  handleIncrement = product => {
+    console.log(product)
+    this.setState({ count: this.state.count + 1});
   }
 
   render() {
     return <div>
     <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-    <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment
+    <button onClick={() => this.handleIncrement("product")} className="btn btn-secondary btn-sm">Increment
     </button>
     {this.state.tags.length === 0 && "Please create a new tag!"}
     {this.renderTags()}
